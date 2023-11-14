@@ -4,21 +4,25 @@ import "./Weather.css";
 
 
 export default function Weather() {
-  const [ready, setReady] = useState(false);
-  const [weatherData, setWeatherData] = useState({});
+  const [weatherData, setWeatherData] = useState({ready : false});
   function handleResponse(response) {
     console.log(response.data);
    
     setWeatherData({
+      ready: true,
       temperature: response.data.main.temp,
-      wind: 12,
+      humidity: response.data.main.humidity,
+      date: "Wednesday 07:00",
+      description: response.data.weather[0].description,
+      iconUrl: "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-day.png",
+      wind: response.data.wind.speed,
       city: response.data.name,
     });
   }
   
     
 
-  if (ready) {
+  if (weatherData.ready) {
 
     return (
       <div className="weather">
@@ -36,13 +40,19 @@ export default function Weather() {
         <div className="card-container1">
           <div className="card1">
             <h1>{weatherData.city}</h1>
-            <h2> <span>{weatherData.description}</span>
-              
+            <h2>
+              {" "}
+              <span>{weatherData.description}</span>
               <span>
-                <a href="#">°C</a>{Math.round(weatherData.temperature)}| <a href="#">°F</a>
+                {Math.round(weatherData.temperature)}
+                <a href="#">°C</a>| <a href="#">°F</a>
               </span>
             </h2>
-            <img src={weatherData.iconUrl} className="img-container1" alt="clear" />
+            <img
+              src={weatherData.iconUrl}
+              className="img-container1"
+              alt={weatherData.description}
+            />
             <h3>
               <span></span>
               <br />
