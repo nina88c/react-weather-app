@@ -1,0 +1,64 @@
+
+
+form {
+    display: flex;
+justify-content: center;
+align-items: center;
+}
+
+button {
+  border-radius: 3px;
+  background-color: #efefef;
+  position: relative;
+  left: 30px;
+}
+.card-container1 {
+  display: flex;
+  justify-content: center;
+}
+
+.card1 {
+  width: 500px;
+  height: 150px;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 0%;
+  background-color: transparent;
+}
+.card1:hover {
+  border: none;
+  color: white;
+  background: #f1e493;
+  transition: 150ms ease-in-out;
+}
+.img-card {
+  size: smaller;
+}
+.weather-temperature strong {
+  color: rgb(33, 33, 33);
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.weather-temperature .units {
+  position: relative;
+  font-size: 16px;
+  top: -34px;
+}
+
+.weather-forecast-temperature-max{
+color: red;
+}
+
+.weather-forecast-temperature-min{
+  color: blue;
+}
+footer {
+  text-align: center;
+  position: relative;
+  top: 50px;
+  color: white;
+}

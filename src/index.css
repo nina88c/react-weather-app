@@ -1,0 +1,24 @@
+body {
+  background: linear-gradient(
+    95deg,
+    rgb(149, 213, 245) 0%,
+    rgb(183, 222, 227) 45%,
+    rgb(247, 238, 192) 95%
+  );
+}
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  opacity: 0.5;
+  padding: 20px;
+  position: relative;
+  top: 50px;
+
+  border: 2px solid black;
+  background: linear-gradient(
+    95deg,
+    rgb(149, 213, 245) 0%,
+    rgb(183, 222, 227) 45%,
+    rgb(247, 238, 192) 95%
+  );
+}
