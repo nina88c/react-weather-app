@@ -1,26 +1,29 @@
-import React, { useState } from "react";
+import React, { useState }  from "react";
 import axios from "axios";
 import "./Weather.css";
 
+
 export default function Weather(props) {
-  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [weatherData, setWeatherData] = useState({ready : false});
   function handleResponse(response) {
     console.log(response.data);
-
+   
     setWeatherData({
       ready: true,
-      temperature: response.data.temperature.current,
-      humidity: response.data.temperature.humidity,
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
       date: "Wednesday 07:00",
-      description: response.data.condition.description,
-      iconUrl:
-        "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-day.png",
+      description: response.data.weather[0].description,
+      iconUrl: "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-day.png",
       wind: response.data.wind.speed,
-      city: response.data.city,
+      city: response.data.name,
     });
   }
+  
+    
 
   if (weatherData.ready) {
+
     return (
       <div className="weather">
         <form id="search-form">
@@ -64,8 +67,9 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    const apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}`;
+    const apiKey = "34ae1065362d42545661451bda2b8a1f";
+    let apiUrl =`https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}`;
+
 
     axios.get(apiUrl).then(handleResponse);
     return "loading...";
