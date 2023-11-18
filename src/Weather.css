@@ -1,20 +1,38 @@
-
-
-form {
-    display: flex;
-justify-content: center;
-align-items: center;
+ body{
+ background: linear-gradient(
+    95deg,
+    rgb(149, 213, 245) 0%,
+    rgb(183, 222, 227) 45%,
+    rgb(247, 238, 192) 95%
+  );
 }
 
-button {
-  border-radius: 3px;
-  background-color: #efefef;
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  opacity: 0.5;
+  padding: 20px;
   position: relative;
-  left: 30px;
+  top: 50px;
+
+  border: 2px solid black;
+  background: linear-gradient(
+    95deg,
+    rgb(149, 213, 245) 0%,
+    rgb(183, 222, 227) 45%,
+    rgb(247, 238, 192) 95%
+  );
+}
+
+form {
+  display: flex;
+  justify-content: center; /* horizontally center the form */
+  align-items: center; /* vertically center the form */
 }
 .card-container1 {
   display: flex;
   justify-content: center;
+ 
 }
 
 .card1 {
@@ -33,29 +51,73 @@ button {
   background: #f1e493;
   transition: 150ms ease-in-out;
 }
-.img-card {
-  size: smaller;
-}
-.weather-temperature strong {
-  color: rgb(33, 33, 33);
-  font-size: 64px;
-  line-height: 1;
-  font-weight: 400;
+button {
+  border-radius: 3px;
+  background-color: #efefef;
 }
 
-.weather-temperature .units {
+.img-container1 {
+  margin: 0 auto;
+  display: block;
   position: relative;
-  font-size: 16px;
-  top: -34px;
+  top: -100px;
 }
 
-.weather-forecast-temperature-max{
-color: red;
+h2 {
+  position: relative;
+  right: 170px;
+  bottom: 25px;
+  font: small;
+}
+.units {
+  position: relative;
+  top: -15px;
+  font-size: medium;
+  display: inline;
+}
+units:hover {
+  cursor: pointer;
+}
+.description{
+ position: relative;
+  left: 157px;
+  bottom: 170px;
+  font-size: smaller;
+}
+h4 {
+  text-align: center;
+  position: relative;
+  bottom: 165px;
 }
 
-.weather-forecast-temperature-min{
-  color: blue;
+.card-container {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between 5px;
+  gap: 10px;
 }
+
+.card {
+  width: 200px;
+  height: 180px;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 0%;
+  flex-basis: calc(20% - 20px);
+  background-color: transparent;
+}
+.card:hover {
+  color: white;
+  border: none;
+  background: #f1e493;
+  transition: 150ms ease-in-out;
+}
+.card-fourth {
+  padding-top: 15px;
+}
+
 footer {
   text-align: center;
   position: relative;

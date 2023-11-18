@@ -1,18 +1,21 @@
 import React, { useState } from "react";
+import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+ 
+
   function handleResponse(response) {
     console.log(response.data);
-
+    console.log(response.data.main.humidity);
     setWeatherData({
       ready: true,
-      temperature: response.data.temperature.current,
-      humidity: response.data.temperature.humidity,
-      date: "Wednesday 07:00",
-      description: response.data.condition.description,
+      temperature: response.data.temperature,
+      humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
       iconUrl:
         "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-day.png",
       wind: response.data.wind.speed,
@@ -30,37 +33,13 @@ export default function Weather(props) {
             id="city-input"
             placeholder="       Enter your city     "
           />
-          <button id="current-location-button">📍 Current</button>
+          <button id="current-location-button">
+            <span role="img" aria-label="Current location">
+              📍 Current
+            </span>
+          </button>
         </form>
-        <br />
-
-        <div className="card-container1">
-          <div className="card1">
-            <h1>{weatherData.city}</h1>
-            <h2>
-              {" "}
-              <span>{weatherData.description}</span>
-              <span>
-                {Math.round(weatherData.temperature)}
-                <p href="#">°C</p>| <p href="#">°F</p>
-              </span>
-            </h2>
-            <img
-              src={weatherData.iconUrl}
-              className="img-container1"
-              alt={weatherData.description}
-            />
-            <h3>
-              <span></span>
-              <br />
-              Humidity: <span></span>%
-              <br />
-              Wind:{weatherData.wind} <span></span>mph
-            </h3>
-            <h4>Friday 18:42</h4>
-          </div>
-        </div>
-        <br />
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {
