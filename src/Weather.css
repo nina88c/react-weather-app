@@ -56,11 +56,11 @@ button {
   background-color: #efefef;
 }
 
-.img-container1 {
+.weather-icon1{
   margin: 0 auto;
   display: block;
   position: relative;
-  top: -100px;
+  top: -85px;
 }
 
 h2 {
@@ -72,7 +72,7 @@ h2 {
 .units {
   position: relative;
   top: -8px;
-  font-size: medium;
+  font-size: smaller;
   display: inline;
 }
 units:hover {
@@ -81,13 +81,13 @@ units:hover {
 .description{
  position: relative;
   left: 157px;
-  bottom: 145px;
+  bottom: 140px;
   font-size: smaller;
 }
 h4 {
   text-align: center;
   position: relative;
-  bottom: 130px;
+  bottom: 145px;
 }
 
 .card-container {
