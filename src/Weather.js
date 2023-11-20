@@ -5,33 +5,51 @@ import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
+
  
 
   function handleResponse(response) {
     console.log(response.data);
-    console.log(response.data.main.humidity);
+ 
     setWeatherData({
       ready: true,
-      temperature: response.data.temperature,
+      temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
-      iconUrl:
-        "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-day.png",
-      wind: response.data.wind.speed,
-      city: response.data.city,
+      icon: response.data.weather[0].icon,
+      wind: Math.round(response.data.wind.speed),
+      city: response.data.name,
     });
+   
+  }
+  
+  function handleSubmit(event) {
+    event.preventDefault();
+search();
+  }
+ function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
+  function search() { 
+    const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(handleResponse);
   }
 
   if (weatherData.ready) {
     return (
       <div className="weather">
-        <form id="search-form">
+        <form onSubmit={handleSubmit}>
           <input type="submit" value="🔍" />
           <input
-            type="city"
+            type="text" // Corrected the input type to accept text input
             id="city-input"
-            placeholder="       Enter your city     "
+            placeholder="Enter your city"
+            onChange={handleCityChange}
           />
           <button id="current-location-button">
             <span role="img" aria-label="Current location">
@@ -39,14 +57,12 @@ export default function Weather(props) {
             </span>
           </button>
         </form>
+
         <WeatherInfo data={weatherData} />
       </div>
     );
   } else {
-    const apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}`;
-
-    axios.get(apiUrl).then(handleResponse);
+    search();
     return "loading...";
   }
 }

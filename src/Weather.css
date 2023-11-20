@@ -71,7 +71,7 @@ h2 {
 }
 .units {
   position: relative;
-  top: -15px;
+  top: -8px;
   font-size: medium;
   display: inline;
 }
@@ -81,13 +81,13 @@ units:hover {
 .description{
  position: relative;
   left: 157px;
-  bottom: 170px;
+  bottom: 145px;
   font-size: smaller;
 }
 h4 {
   text-align: center;
   position: relative;
-  bottom: 165px;
+  bottom: 130px;
 }
 
 .card-container {
