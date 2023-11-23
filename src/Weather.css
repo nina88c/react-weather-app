@@ -55,12 +55,17 @@ button {
   border-radius: 3px;
   background-color: #efefef;
 }
-
+/*this css is not being used for weather icon1 the following css is */
 .weather-icon1{
   margin: 0 auto;
   display: block;
   position: relative;
   top: -85px;
+
+}
+.float-center{
+  position: relative;
+  top: -84px;
 }
 
 h2 {
@@ -72,7 +77,7 @@ h2 {
 .units {
   position: relative;
   top: -8px;
-  font-size: smaller;
+  font-size: small;
   display: inline;
 }
 units:hover {
@@ -90,33 +95,8 @@ h4 {
   bottom: 145px;
 }
 
-.card-container {
-  display: flex;
-  justify-content: center;
-  justify-content: space-between 5px;
-  gap: 10px;
-}
 
-.card {
-  width: 200px;
-  height: 180px;
-  padding: 10px;
-  box-sizing: border-box;
-  text-align: center;
-  border: 2px solid black;
-  border-radius: 0%;
-  flex-basis: calc(20% - 20px);
-  background-color: transparent;
-}
-.card:hover {
-  color: white;
-  border: none;
-  background: #f1e493;
-  transition: 150ms ease-in-out;
-}
-.card-fourth {
-  padding-top: 15px;
-}
+
 
 footer {
   text-align: center;

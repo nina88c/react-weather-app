@@ -1,0 +1,35 @@
+.WeatherForecast{
+    text-align: center;
+}
+
+.WeatherForecast-temperature-min {
+  opacity: 0.6;
+  margin-left: 5px;
+}
+
+
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between 5px;
+  gap: 10px;
+}
+
+.card {
+  width: 200px;
+  height: 180px;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 0%;
+  flex-basis: calc(20% - 20px);
+  background-color: transparent;
+}
+.card:hover {
+  color: white;
+  border: none;
+  background: #f1e493;
+  transition: 150ms ease-in-out;
+}
