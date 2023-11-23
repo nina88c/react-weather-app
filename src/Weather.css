@@ -65,7 +65,7 @@ button {
 }
 .float-center{
   position: relative;
-  top: -84px;
+  top: -79px;
 }
 
 h2 {
@@ -80,9 +80,7 @@ h2 {
   font-size: small;
   display: inline;
 }
-units:hover {
-  cursor: pointer;
-}
+
 .description{
  position: relative;
   left: 157px;
