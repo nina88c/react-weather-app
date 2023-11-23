@@ -53,11 +53,7 @@ search();
             placeholder="Enter your city"
             onChange={handleCityChange}
           />
-          <button id="current-location-button">
-            <span role="img" aria-label="Current location">
-              📍 Current
-            </span>
-          </button>
+        
         </form>
 
         <WeatherInfo data={weatherData} />
